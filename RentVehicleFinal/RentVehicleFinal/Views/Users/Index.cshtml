@@ -1,0 +1,84 @@
+﻿@model IEnumerable<RentVehicleFinal.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Листа на вработени</h2>
+
+<table class="table" id="tableid">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Пермисија")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role.role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td class="text-center">
+
+                    <a href="/Users/Edit/@item.Id" class="color-white">
+                        <button class="btn btn-info btn-sm" style="margin: 5px; padding:10px; ">
+                            Промени
+                        </button>
+                    </a>
+
+
+
+
+                    <a href="/Users/Details/@item.Id" class="color-white">
+                        <button class="btn btn-info btn-sm" style="margin: 5px; padding:10px; ">
+                            Детали
+                        </button>
+                    </a>
+
+                   
+                        <a href="/Users/Delete/@item.Id" class="color-white">
+                            <button class="btn btn-danger btn-sm" style="margin: 5px; padding:10px; ">
+                                Избриши
+                            </button>
+                        </a>
+
+                    
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () { $('#tableid').DataTable(); });
+    </script>
+}

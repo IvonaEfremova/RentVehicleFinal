@@ -1,0 +1,43 @@
+﻿@model IEnumerable<RentVehicleFinal.Models.VehicleType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Листа на типови на возила</h2>
+
+<p>
+    <a href="/VehicleTypes/Create" class="color-white">
+        <button class="btn btn-success m-2" style="margin: 5px; padding:10px; width: 200px">
+            Додади нов тип на возило
+        </button>
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <h3> @Html.DisplayNameFor(model => model.type)</h3>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <h4>
+                <a href="/VehicleTypes/ShowViheclesFromType/@item.Id" style="font: 18; color: black">
+                    @item.type: [@item.Vehicle.Count.ToString()]
+                </a>
+            </h4>
+         
+        </td>
+        <td>
+            <button class="btn btn-danger m-2" style="margin: 5px; padding:10px; width: 100px;color: white">
+                @Html.ActionLink("Избриши", "Delete", new { id = item.Id })
+            </button>
+
+        </td>
+    </tr>
+}
+
+</table>

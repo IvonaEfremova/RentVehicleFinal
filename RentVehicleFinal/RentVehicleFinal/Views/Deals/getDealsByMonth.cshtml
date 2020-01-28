@@ -1,0 +1,218 @@
+﻿@model IEnumerable<RentVehicleFinal.Models.Deal>
+
+@{
+    ViewBag.Title = "getDealsByMonth";
+}
+
+<h2>Резервации според месец</h2>
+
+<h3>Јануари</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 1).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 1)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+
+<h3>Февруари</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 2).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 2)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Март</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 3).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 3)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+
+<h3>Април</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 4).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 4)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Мај</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 5).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 5)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Јуни</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 6).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 6)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Јули</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 7).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 7)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Август</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 8).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 8)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+
+<h3>Септември</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 9).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 9)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Октомври</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 10).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 10)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+
+<h3>Ноември</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 11).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 11)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+<hr />
+<h3>Декември</h3>
+<h5>Број на резервации: @Model.Where(m => m.DateFrom.Month == 12).Count()</h5>
+@foreach (var item in Model)
+{
+    if (item.DateFrom.Month == 12)
+    {
+        <h4>
+            <a href="/Deals/Details/@item.Id" style="font:20px; color: black">
+                ID на резервација: @item.Id Вкупна цена: @item.TotalPrice
+            </a>
+        </h4>
+    }
+
+}
+
+
+
+
+
+
+

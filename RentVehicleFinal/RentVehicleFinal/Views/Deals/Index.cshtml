@@ -1,0 +1,138 @@
+﻿@model IEnumerable<RentVehicleFinal.Models.Deal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Резервации</h2>
+
+
+<table class="table" id="tableid">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DateFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTo)
+            </th>
+            <th>
+                @Html.DisplayName("Вкупна цена")
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a href="../Customers/Details/@item.CustomerId">
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </a>
+
+            </td>
+            <td>
+                <a href="../Users/Details/@item.UserId">
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </a>
+
+            </td>
+            <td>
+                <a href="../Vehicles/Details/@item.VehicleId">
+                    @Html.DisplayFor(modelItem => item.VehicleId)
+                </a>
+
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td class="text-center">
+
+                <a href="/Deals/Edit/@item.Id" class="color-white">
+                    <button class="btn btn-info btn-sm" style="margin: 5px; padding:10px; ">
+                        Промени
+                    </button>
+                </a>
+
+
+
+
+                <a href="/Deals/Details/@item.Id" class="color-white">
+                    <button class="btn btn-info btn-sm" style="margin: 5px; padding:10px; ">
+                        Детали
+                    </button>
+                </a>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/Deals/Delete/@item.Id" class="color-white">
+                        <button class="btn btn-danger btn-sm" style="margin: 5px; padding:10px; ">
+                            Избриши
+                        </button>
+                    </a>
+
+                }
+
+                @if (item.plateno)
+                {
+                    @*<form action="~/Deals/Charge/@item.Id" method="post" class="color-white disabled">
+                        <script src="https://checkout.stripe.com/v2/checkout.js"
+                                class="stripe-button"
+                                data-description="Reserve"
+                                data-amount="@item.TotalPrice"
+                                data-key="@ViewBag.StripePublishableKey"
+                                data-locale="auto"></script>
+                    </form>*@
+                    <h4 style="color:red"><b>Резервацијата е платена.</b></h4>
+                }
+                else
+                {
+                    <form action="~/Deals/Charge/@item.Id" method="post" class="color-white">
+                        <script src="https://checkout.stripe.com/v2/checkout.js"
+                                class="stripe-button"
+                                data-description="Reserve"
+                                data-amount="@item.TotalPrice"
+                                data-key="@ViewBag.StripePublishableKey"
+                                data-locale="auto"></script>
+                    </form>
+                }
+            </td>
+            
+
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+@ViewBag.registracija
+@section scripts
+{
+    <script>
+        $(document).ready(function () { $('#tableid').DataTable(); });
+    </script>
+}

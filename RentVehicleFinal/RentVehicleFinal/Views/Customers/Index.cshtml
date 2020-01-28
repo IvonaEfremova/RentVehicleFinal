@@ -1,0 +1,109 @@
+﻿@model IEnumerable<RentVehicleFinal.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Листа на клиенти</h2>
+
+<p>
+    <a href="/Customers/Create" class="color-white">
+        <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 180px">
+            Креирај нов клиент
+        </button>
+    </a>
+   
+</p>
+<table class="table" id="tableid">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td class="text-center">
+               
+                    <a href="/Customers/Edit/@item.Id" class="color-white">
+                        <button class="btn btn-info btn-sm" style="margin: 5px; padding:10px; ">
+                            Промени
+                        </button>
+                    </a>
+
+                
+
+                
+                <a href="/Customers/Details/@item.Id" class="color-white">
+                    <button class="btn btn-info btn-sm" style="margin: 5px; padding:10px; ">
+                         Детали
+                    </button>
+                </a>
+                
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/Customers/Delete/@item.Id" class="color-white">
+                        <button class="btn btn-danger btn-sm" style="margin: 5px; padding:10px; ">
+                            Избриши
+                         </button>
+                    </a>
+
+                }
+                
+            </td>
+
+            @*<td>
+                @Html.ActionLink("Промени", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Детали", "Details", new { id = item.Id }) |
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Избриши", "Delete", new { id = item.Id })
+                }
+            </td>*@
+        </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () { $('#tableid').DataTable(); });
+    </script>
+}
+

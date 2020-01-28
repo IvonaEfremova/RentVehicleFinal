@@ -1,0 +1,88 @@
+﻿@model RentVehicleFinal.Models.Vehicle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Возило:</h4>
+    <hr />
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="@Model.ImageUrl" style="width:200px" />
+            </div>
+
+            <div class="col-md-8">
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Model)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Model)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RegistrationNum)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RegistrationNum)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReqestedCustomerAge)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ReqestedCustomerAge)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RequestedCustomerLicence)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RequestedCustomerLicence)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/Vehicles/Edit/@Model.Id" class="color-white">
+            <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 120px">
+                Промени
+            </button>
+        </a>
+    }
+    <a href="/Vehicles/Index" class="color-white">
+        <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 120px">
+            Врати се назад
+        </button>
+    </a>
+</p>

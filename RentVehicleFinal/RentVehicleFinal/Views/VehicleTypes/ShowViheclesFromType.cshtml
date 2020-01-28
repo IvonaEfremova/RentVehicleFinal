@@ -1,0 +1,20 @@
+﻿@model RentVehicleFinal.Models.VehicleType
+@{
+    ViewBag.Title = "ShowViheclesFromType";
+}
+
+<h2>Листа на возила од тип: @Model.type</h2>
+
+<table>
+    @foreach (var item in Model.Vehicle)
+    {
+        <tr>
+            <td>
+                <h4><a href="/Vehicles/Details/@item.Id" style="font:20px; color: black">
+    @item.Model
+</a></h4>
+            </td>
+        </tr>
+    }
+</table>
+

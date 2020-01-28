@@ -1,0 +1,5 @@
+interface sredi
+plakanje / stripe?
+dropdown vo create user od site registered users
+
+

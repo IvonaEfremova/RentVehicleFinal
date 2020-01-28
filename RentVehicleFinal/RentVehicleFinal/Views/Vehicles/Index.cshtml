@@ -1,0 +1,128 @@
+﻿@model IEnumerable<RentVehicleFinal.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Листа на возила</h2>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/Vehicles/Create" class="color-white">
+            <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 180px">
+                Додади ново возило
+            </button>
+        </a>
+    }
+</p>
+<p>
+    @if (Session["pecatiPoraka"] == "da")
+    {
+        <h4 style="color: red">@Session["uspeh"]</h4>
+        Session["pecatiPoraka"] = "ne";
+
+    }
+    else
+    {
+
+    }
+</p>
+
+
+
+<table class="table" id="tableid">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayName("Карактеристики")
+            </th>
+            <th>
+                @Html.DisplayName("Регистрација")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            @foreach (var item in Model)
+            {
+               
+        <tr>
+            <td>
+                <img src="@item.ImageUrl" style="width:200px" />
+            </td>
+            <td class="text-center">
+                <h4>@Html.DisplayFor(modelItem => item.VehicleType.type)</h4>
+                <h4>@Html.DisplayFor(modelItem => item.Model)</h4>
+                <h5>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </h5>
+            </td>
+
+            <td class="text-center">
+                <h4>@Html.DisplayFor(modelItem => item.RegistrationNum)</h4>
+            </td>
+
+            <td class="text-center">
+                <h2>@Html.DisplayFor(modelItem => item.Price) MKД</h2>
+            </td>
+
+            
+            <td class="text-center">
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/Vehicles/Edit/@item.Id" class="color-white">
+                        <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 100px">
+                            Промени
+                        </button>
+                    </a>
+
+                }
+               
+                <br/>
+                <a href="/Vehicles/Details/@item.Id" class="color-white">
+                    <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 100px">
+                        Детали
+                    </button>
+                </a>
+                <br/>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/Vehicles/Delete/@item.Id" class="color-white">
+                        <button class="btn btn-danger m-2" style="margin: 5px; padding:10px; width: 100px">
+                            Избриши
+                        </button>
+                    </a>
+
+                }
+                <br/>
+                
+           
+               
+            <button class="btn btn-success m-2" style="margin: 5px; padding:10px; width: 100px;color: white">
+                @Html.ActionLink("Резервирај", "../Deals/Create", new { VehicleId = item.Id })
+            </button>
+         
+
+                
+            </td>
+        </tr>
+            }
+           
+    </tbody>
+
+</table>
+
+@section scripts
+{
+    <script>
+       
+        $(document).ready(function () { $('#tableid').DataTable(); });
+    </script>
+}

@@ -1,0 +1,74 @@
+﻿@model RentVehicleFinal.Models.Deal
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Избриши ја резервацијата</h2>
+
+<h3>Дали сте сигурни дека сакате да ја избришете?</h3>
+<div>
+    <h4>Податоци за резервацијата</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTo)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Избриши" class="btn btn-danger" style="margin: 5px; padding:10px; width: 120px" />
+
+            
+        </div>
+    }
+</div>
+<a href="/Deals/Index" class="color-white">
+    <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 120px">
+        Откажи
+    </button>
+</a>

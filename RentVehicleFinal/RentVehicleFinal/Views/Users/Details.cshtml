@@ -1,0 +1,52 @@
+﻿@model RentVehicleFinal.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали за вработен</h2>
+
+<div>
+    <h4>Вработен:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+      <a href="/Users/Edit/@Model.Id" class="color-white">
+            <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 120px">
+                Промени
+            </button>
+        </a>
+    
+    <a href="/Users/Index" class="color-white">
+        <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 120px">
+            Врати се назад
+        </button>
+    </a>
+</p>

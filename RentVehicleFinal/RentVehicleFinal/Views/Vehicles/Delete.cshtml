@@ -1,0 +1,91 @@
+﻿@model RentVehicleFinal.Models.Vehicle
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Дали сте сигурни дека сакате да го избришете возилото?</h3>
+<div>
+    <h4>Детали за возилото</h4>
+    <hr />
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="@Model.ImageUrl" style="width:200px" />
+            </div>
+
+            <div class="col-md-8">
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Model)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Model)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RegistrationNum)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RegistrationNum)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReqestedCustomerAge)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ReqestedCustomerAge)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RequestedCustomerLicence)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.RequestedCustomerLicence)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Избриши" class="btn btn-danger" style="margin: 5px; padding:10px; width: 120px" />
+
+
+        </div>
+        
+    }
+</div>
+
+<a href="/Vehicles/Index" class="color-white">
+    <button class="btn btn-info m-2" style="margin: 5px; padding:10px; width: 120px">
+        Откажи
+    </button>
+</a>
